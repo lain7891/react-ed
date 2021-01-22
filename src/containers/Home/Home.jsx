@@ -32,8 +32,11 @@ const Home = () => {
 
     useEffect(() =>{
         API.getRandomEmployee().then((results) => {
-            console.log(results.data);
-            setEmployee(results.data);
+            console.log(results.data.results);
+            console.log("results: ", results);
+console.log("results.data: ", results.data);
+console.log("results.data.results[0]: ", results.data.results[0])
+            setEmployee(results.data.results);
                    });
     }, [])
 
@@ -61,9 +64,9 @@ const Home = () => {
              </thead>
              <tbody>
                <tr>
-                 <td>{employee.image}</td>
-                 <td>{employee.firstName}</td>
-                 <td>{employee.lastName}</td>
+                 <td><img src={employee.picture.thumbnail}/></td>
+                 <td>{employee.name.first}</td>
+                 <td>{employee.name.last}</td>
                  <td>{employee.email}</td>
                  <td>{employee.cell}</td>
                </tr>
