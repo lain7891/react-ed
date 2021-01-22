@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const styles = {
     navbar: {
@@ -16,6 +16,9 @@ const styles = {
 }
 
 const Home = () => {
+
+    const [employee, setEmployee] = useState([]);
+
   return (
       <>
     <nav className="navbar" style={styles.navbar}>
