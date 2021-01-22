@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import API from "../../utils/API"
+
 
 const styles = {
     navbar: {
@@ -13,11 +15,27 @@ const styles = {
         textAlign: "center"
     }
   
-}
+};
+
+
 
 const Home = () => {
 
-    const [employee, setEmployee] = useState([]);
+    const [employee, setEmployee] = useState([{
+        // image: "",
+        // name: "Stef Lupo",
+        // dob: "June 14, 1987",
+        // email: "nialupo87@gmail.com",
+        // phone: "678-793-3025"
+
+    }]);
+
+    useEffect(() =>{
+        API.getRandomEmployee().then((results) => {
+            console.log(results.data);
+            setEmployee(results.data);
+                   });
+    }, [])
 
   return (
       <>
@@ -30,27 +48,30 @@ const Home = () => {
     </nav>
     <div className="container">
         <div className="row">
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Image</th>
-      <th scope="col">Name</th>
-      <th scope="col">DOB</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Picture</td>
-      <td>Mark Twain</td>
-      <td>6/14/1987</td>
-      <td>@gmail.com</td>
-      <td>6787933025</td>
-    </tr>
-   
-  </tbody>
-</table>
+            {employee.map((employee)=> 
+             <table class="table">
+             <thead>
+               <tr>
+                 <th scope="col">Image</th>
+                 <th scope="col">First Name</th>
+                 <th scope="col">Last Name</th>
+                 <th scope="col">Email</th>
+                 <th scope="col">Phone</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td>{employee.image}</td>
+                 <td>{employee.firstName}</td>
+                 <td>{employee.lastName}</td>
+                 <td>{employee.email}</td>
+                 <td>{employee.cell}</td>
+               </tr>
+              
+             </tbody>
+           </table>
+            )}
+       
         </div>
 
     </div>
