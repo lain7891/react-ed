@@ -1,4 +1,4 @@
-
+import Home from "../../containers/Home/Home"
 const styles = {
     form: {
         paddingTop: 20,
@@ -10,8 +10,8 @@ const styles = {
     }
 }
 
-function Search ({handleInputChange}){
-    console.log(handleInputChange)
+function Search ({handleFilterName}){
+    console.log(handleFilterName)
 // const context = useContext(DataAreaContext)
 
 
@@ -25,7 +25,7 @@ function Search ({handleInputChange}){
                 type="Search"
                 placeholder="Search"
                 aria-label="Search"
-                // onChange={this.handleInputChange} 
+                // onChange={event => handleFilterName(event)}
                 style={styles.form}
                 >
 

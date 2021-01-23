@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
+import Search from "../../components/Search/Search"
 
 
 const Home = () => {
   const [employee, setEmployee] = useState([]);
+  const [filteredEmployee, setFilteredEmployee] = useState([]);
   useEffect(() => {
     API.getRandomEmployee().then((results) => {
       console.log("results.data:", results.data);
       setEmployee(results.data.results);
+      setFilteredEmployee(results.data.results)
     });
   }, []);
 
@@ -17,6 +20,21 @@ const Home = () => {
     setEmployee(sortedEmployees);
   };
 
+  const handleFilterName = (event) => {
+      console.log(event.target.value);
+      const filterName = event.target.value;
+      const listOfItems = this.state.employees.filter((response) => {
+    let values = Object.values(response)
+    .join("")
+    .toLowerCase();
+    return values.indexOf(
+       filterName.toLowerCase()
+    )!== -1;
+      });
+    setFilteredEmployee({filteredEmployee: listOfItems})
+      //changes begin to be changed
+
+  }
  
 
   return (
@@ -27,6 +45,7 @@ const Home = () => {
         </div>
       </nav>
       <div className="container">
+          <Search onChange={handleFilterName}/>
         {/* <div className="row"> */}
         <table class="table">
           <thead>
