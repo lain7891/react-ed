@@ -10,8 +10,8 @@ const styles = {
     }
 }
 
-function Search ({handleFilterName}){
-    console.log(handleFilterName)
+function Search (props){
+    console.log(props)
 // const context = useContext(DataAreaContext)
 
 
@@ -25,7 +25,7 @@ function Search ({handleFilterName}){
                 type="Search"
                 placeholder="Search"
                 aria-label="Search"
-                // onChange={event => handleFilterName(event)}
+                onChange={props.onChange}
                 style={styles.form}
                 >
 
