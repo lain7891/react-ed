@@ -7,7 +7,7 @@ import Search from "./components/Search/Search";
 function App() {
   return (
     <Router basename="/">
-       <Search />
+      <Search/>
     <Home />
    
   </Router>
