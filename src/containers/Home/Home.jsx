@@ -24,18 +24,17 @@ const Home = () => {
       const value = event.target.value;
       console.log(event.target.value);
       
-
       if(value === "") {
-          setFilteredEmployee(employee);
+    setFilteredEmployee(employee);
           return;
-      }
+      };
       const filterName = [...filteredEmployee].filter((employee)=> {
-
         return(
             employee.name.first.toLowerCase().includes(value.toLowerCase())
         );
       });
-      setFilteredEmployee(filterName);
+
+      setEmployee(filterName)
     //   const filterName = event.target.value;
     //   const listOfItems = this.state.employees.filter((response) => {
     // let values = Object.values(response)
