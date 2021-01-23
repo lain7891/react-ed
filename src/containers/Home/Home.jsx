@@ -29,7 +29,7 @@ const Home = () => {
           setFilteredEmployee(employee);
           return;
       }
-      const filterName = [...filteredEmployee].filter((employee)=> {
+      const filterName = [...employee].filter((employee)=> {
 
         return(
             employee.name.first.toLowerCase().includes(value.toLowerCase())
