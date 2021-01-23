@@ -21,17 +21,31 @@ const Home = () => {
   };
 
   const handleFilterName = (event) => {
+      const value = event.target.value;
       console.log(event.target.value);
-      const filterName = event.target.value;
-      const listOfItems = this.state.employees.filter((response) => {
-    let values = Object.values(response)
-    .join("")
-    .toLowerCase();
-    return values.indexOf(
-       filterName.toLowerCase()
-    )!== -1;
+      
+
+      if(value === "") {
+          setFilteredEmployee(employee);
+          return;
+      }
+      const filterName = [...filteredEmployee].filter((employee)=> {
+
+        return(
+            employee.name.first.toLowerCase().includes(value.toLowerCase())
+        );
       });
-    setFilteredEmployee({filteredEmployee: listOfItems})
+      setFilteredEmployee(filterName);
+    //   const filterName = event.target.value;
+    //   const listOfItems = this.state.employees.filter((response) => {
+    // let values = Object.values(response)
+    // .join("")
+    // .toLowerCase();
+    // return values.indexOf(
+    //    filterName.toLowerCase()
+    // )!== -1;
+    //   });
+    //   setFilteredEmployee(filteredEmployee)
       //changes begin to be changed
 
   }
