@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
-import Search from "../../components/Search/Search"
+import Search from "../../components/Search/Search";
+import Navbar from "../../components/Navbar/Navbar"
 
 
 const Home = () => {
@@ -52,13 +53,17 @@ const Home = () => {
 
   return (
     <>
-      <nav className="navbar">
-        <div className="container">
+      {/* <nav className="navbar"> */}
+        {/* <div className="container">
           <span className="h1">Employee Directory</span>
         </div>
-      </nav>
+      </nav> */}
+      <Navbar/>
       <div className="container">
-          <Search onChange={handleFilterName}/>
+          <div className="row">
+          <Search onChange={handleFilterName}/> 
+          </div>
+     
         {/* <div className="row"> */}
         <table class="table">
           <thead>
