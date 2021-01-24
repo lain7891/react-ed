@@ -20,9 +20,9 @@ As a user, I want to be able to view my entire employee directory at once so tha
 
 ## Usage
 
-![readme-gif](assets/employee-directory.gif)
+![readme-gif](./assets/employee-directory.gif)
 
-<img src="../assets/employee.png" width="800" height="600"/>
+<img src="./assets/employee.png" width="800" height="600"/>
 
 
 * Node 
