@@ -3,6 +3,12 @@ import API from "../../utils/API";
 import Search from "../../components/Search/Search";
 import Navbar from "../../components/Navbar/Navbar"
 
+const styles={
+heading: {
+    fontFamily:  "Comic Sans MS, Comic Sans, cursive",
+    fontSize: 25
+}
+}
 
 const Home = () => {
   const [employee, setEmployee] = useState([]);
@@ -65,7 +71,7 @@ const Home = () => {
           </div>
      
         {/* <div className="row"> */}
-        <table class="table">
+        <table class="table" style={styles.heading}>
           <thead>
             <tr>
               <th scope="col">Image</th>
